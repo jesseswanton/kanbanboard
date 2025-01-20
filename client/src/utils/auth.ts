@@ -1,30 +1,51 @@
-import { JwtPayload, jwtDecode } from 'jwt-decode';
+import {jwtDecode, JwtPayload } from 'jwt-decode';
 
+// Decode the JWT token to get the user profile
 class AuthService {
   getProfile() {
-    // TODO: return the decoded token
+    const token = this.getToken();
+    if (token) {
+      return jwtDecode<JwtPayload>(token); 
+    }
+    return null;
   }
 
+  // Checks if the user is logged in by validating the token
   loggedIn() {
-    // TODO: return a value that indicates if the user is logged in
+    const token = this.getToken();
+    return !!token && !this.isTokenExpired(token); 
   }
-  
+
+  // Checks if the token is expired
   isTokenExpired(token: string) {
-    // TODO: return a value that indicates if the token is expired
+    try {
+      const decoded = jwtDecode<JwtPayload>(token);
+      const currentTime = Math.floor(Date.now() / 1000);
+      return !!decoded.exp && decoded.exp < currentTime; 
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      // If decoding fails, assume the token is invalid or expired
+      return true; 
+    }
   }
 
+  // Retrieves the token from localStorage
   getToken(): string {
-    // TODO: return the token
+    return localStorage.getItem('id_token') || ''; 
   }
 
+  // Saves the token to localStorage
   login(idToken: string) {
-    // TODO: set the token to localStorage
-    // TODO: redirect to the home page
+    localStorage.setItem('id_token', idToken);
+    // Redirects to the home page which will now show the Kanban board
+    window.location.assign('/'); 
   }
 
+  // Removes the token from localStorage
   logout() {
-    // TODO: remove the token from localStorage
-    // TODO: redirect to the login page
+    localStorage.removeItem('id_token');
+    // Redirects to the login page 
+    window.location.assign('/login'); 
   }
 }
 
