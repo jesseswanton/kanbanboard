@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+out/
+
+# PostgreSQL data directory (if applicable)
+pgdata/
+*.pgdata
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Editor specific files
+.vscode/
+.idea/
+
+# JWT secrets (ensure these are never pushed)
+*.secret
