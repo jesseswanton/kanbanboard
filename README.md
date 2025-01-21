@@ -65,16 +65,16 @@ New tickets can be created with:
 
 **Home Page** (without being logged in)
 
-![Alt text](./assets/kanban1.png)
+![Kanban screenshot 1](./assets/kanban1.png)
 
 **Login page**
 
-![Alt text](./assets/kanban2.png)
+![Kanban screenshot 2](./assets/kanban2.png)
 
 **Home Page / Kanban Board** (after log in)
 
-![Alt text](./assets/kanban3.png)
+![Kanban screenshot 3](./assets/kanban3.png)
 
 **Creating a New Story/Ticket**
 
-![Alt text](./assets/kanban4.png)
+![Kanban screenshot 4](./assets/kanban4.png)
