@@ -34,11 +34,7 @@ To get started with the Kanban Board, follow these steps:
     ```bash
     npm install
     ```
-3. Create an .env file in the client directory with this variable:
-    ```bash
-    VITE_API_URL='http://localhost:3001'
-    ```
-3. Create an .env file in the server directory with these variables:
+4. Create an .env file in the server directory with these variables:
     ```bash
     DB_NAME='kanban_db'
     DB_USER='your db user here'
