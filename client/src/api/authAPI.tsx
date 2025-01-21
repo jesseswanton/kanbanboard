@@ -1,11 +1,9 @@
 import { UserLogin } from "../interfaces/UserLogin";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
-
 // Call the API to login with user info
 const login = async (userInfo: UserLogin) => {
   try {
-    const response = await fetch(`${API_URL}/auth/login`, {
+    const response = await fetch(`/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
